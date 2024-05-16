@@ -1,0 +1,24 @@
+name: Deploy on NPM
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install node modules
+        run: npm run install
+
+      - name: Build
+        run: npm run build
+
+      - name: Publish on NPM
+        run: cd dist && npm publish --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NODE_AUTH_TOKEN }}
