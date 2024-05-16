@@ -215,10 +215,7 @@ export class Toolbar {
     this.addActionButton(resultButtonBlock, CloseIcon, 'close', 'Close');
 
     this.markerjsContainer.appendChild(this.uiContainer);
-    this.setSelectMode();
-
     this.setCurrentMarker();
-
     this.adjustLayout();
     // setTimeout(this.adjustLayout, 10);
   }
@@ -227,6 +224,10 @@ export class Toolbar {
    * Add a listener to the toolbar button click event.
    * @param listener
    */
+  public setSelectMode(): void {
+    this.resetButtonStyles();
+    this.setActiveButton(this.buttons[0]);
+  }
   public addButtonClickListener(listener: ToolbarButtonClickHandler): void {
     this.buttonClickListeners.push(listener);
   }
@@ -247,10 +248,6 @@ export class Toolbar {
   /**
    * Switch toolbar to the `select` mode.
    */
-  public setSelectMode(): void {
-    this.resetButtonStyles();
-    this.setActiveButton(this.buttons[0]);
-  }
 
   /**
    * Adjusts toolbar layout.
@@ -358,8 +355,11 @@ export class Toolbar {
     switch (value) {
       case 'select':
         actionButton.style.fill = this.uiStyleSettings.selectButtonColor;
+        actionButton.style.display = 'none';
         break;
       case 'delete':
+        actionButton.style.display = 'none';
+        break;
       case 'clear':
         actionButton.style.fill = this.uiStyleSettings.deleteButtonColor;
         break;
@@ -371,9 +371,11 @@ export class Toolbar {
         break;
       case 'render':
         actionButton.style.fill = this.uiStyleSettings.okButtonColor;
+        actionButton.style.display = 'none';
         break;
       case 'close':
         actionButton.style.fill = this.uiStyleSettings.closeButtonColor;
+        actionButton.style.display = 'none';
         break;
     }
 
