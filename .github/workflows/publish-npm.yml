@@ -19,7 +19,13 @@ jobs:
         run: npm run build
 
       - name: Publish on NPM
+        id: publish
         uses: JS-DevTools/npm-publish@v3
         with:
           token: ${{ secrets.NODE_AUTH_TOKEN }}
           package: dist
+
+      - if: ${{ !steps.publish.outputs.type }}
+        run: |
+          echo "Release failed: Version not changed"
+          exit 1
