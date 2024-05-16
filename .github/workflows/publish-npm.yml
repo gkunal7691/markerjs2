@@ -19,6 +19,7 @@ jobs:
         run: npm run build
 
       - name: Publish on NPM
-        run: cd dist && npm publish --access public
-        env:
-          NPM_TOKEN: ${{ secrets.NODE_AUTH_TOKEN }}
+        uses: JS-DevTools/npm-publish@v3
+        with:
+          token: ${{ secrets.NODE_AUTH_TOKEN }}
+          package: dist
