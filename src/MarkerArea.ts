@@ -138,12 +138,10 @@ export class MarkerArea {
    */
   public get DEFAULT_MARKER_TYPES(): (typeof MarkerBase)[] {
     return [
-      FrameMarker,
-      FreehandMarker,
       ArrowMarker,
-      TextMarker,
-      EllipseMarker,
-      HighlightMarker,
+      FreehandMarker,
+      FrameMarker,
+      EllipseFrameMarker,
       CalloutMarker
     ];
   }
