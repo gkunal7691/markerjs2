@@ -397,7 +397,6 @@ export class MarkerArea {
     this.onPointerMove = this.onPointerMove.bind(this);
     this.onPointerUp = this.onPointerUp.bind(this);
     this.onPointerOut = this.onPointerOut.bind(this);
-    this.onKeyUp = this.onKeyUp.bind(this);
     this.overrideOverflow = this.overrideOverflow.bind(this);
     this.restoreOverflow = this.restoreOverflow.bind(this);
     this.close = this.close.bind(this);
@@ -833,7 +832,6 @@ export class MarkerArea {
     window.addEventListener('pointerout', this.onPointerOut);
     window.addEventListener('pointerleave', this.onPointerUp);
     window.addEventListener('resize', this.onWindowResize);
-    window.addEventListener('keyup', this.onKeyUp);
   }
 
   private detachEvents() {
@@ -849,7 +847,6 @@ export class MarkerArea {
     window.removeEventListener('pointerout', this.onPointerOut);
     window.removeEventListener('pointerleave', this.onPointerUp);
     window.removeEventListener('resize', this.onWindowResize);
-    window.removeEventListener('keyup', this.onKeyUp);
   }
 
   /**
@@ -1644,19 +1641,6 @@ export class MarkerArea {
   private onPointerOut(/*ev: PointerEvent*/) {
     if (this.touchPoints > 0) {
       this.touchPoints--;
-    }
-  }
-
-  private onKeyUp(ev: KeyboardEvent) {
-    if (
-      this._currentMarker !== undefined &&
-      this.notesArea === undefined &&
-      (ev.key === 'Delete' || ev.key === 'Backspace')
-    ) {
-      this.deleteSelectedMarker();
-      // this.setCurrentMarker();
-      // this.markerImage.style.cursor = 'default';
-      // this.addUndoStep();
     }
   }
 
