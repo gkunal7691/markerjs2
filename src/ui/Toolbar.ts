@@ -358,7 +358,6 @@ export class Toolbar {
         actionButton.style.display = 'none';
         break;
       case 'delete':
-        actionButton.style.display = 'none';
         break;
       case 'clear':
         actionButton.style.fill = this.uiStyleSettings.deleteButtonColor;

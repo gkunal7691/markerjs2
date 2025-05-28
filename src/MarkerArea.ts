@@ -1485,6 +1485,8 @@ export class MarkerArea {
       this.settings.newFreehandMarkerOnPointerUp
     ) {
       this.createNewMarker(FreehandMarker);
+    } else if (marker instanceof ArrowMarker) {
+      this.createNewMarker(ArrowMarker);
     } else {
       this.toolbar.setSelectMode();
     }

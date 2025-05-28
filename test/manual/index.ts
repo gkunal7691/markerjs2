@@ -99,7 +99,7 @@ export class Experiments {
       this.markerArea1.uiStyleSettings.zoomButtonVisible = false;
       this.markerArea1.uiStyleSettings.zoomOutButtonVisible = false;
 
-      this.markerArea1.uiStyleSettings.clearButtonVisible = true;
+      this.markerArea1.uiStyleSettings.clearButtonVisible = false;
 
       this.markerArea1.uiStyleSettings.logoPosition = 'right';
 
