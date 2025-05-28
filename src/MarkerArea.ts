@@ -126,7 +126,8 @@ export class MarkerArea {
       FreehandMarker,
       FrameMarker,
       EllipseFrameMarker,
-      CalloutMarker
+      CalloutMarker,
+      TextMarker
     ];
   }
 
@@ -142,7 +143,8 @@ export class MarkerArea {
       FreehandMarker,
       FrameMarker,
       EllipseFrameMarker,
-      CalloutMarker
+      CalloutMarker,
+      TextMarker
     ];
   }
 
